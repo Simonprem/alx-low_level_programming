@@ -13,7 +13,7 @@ int main(void)
 	{
 		if (ch != 'e' && ch != 'q')
 		{
-			putchar(char);
+			putchar(cha);
 		}
 		else
 		{
