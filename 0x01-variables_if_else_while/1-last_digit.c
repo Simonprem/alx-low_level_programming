@@ -20,11 +20,11 @@ printf("is %d and is greater than 5", n % 10);
 }
 else if (n == 0)
 {
-printf("is 0 and is 0");
+printf("is %d and is 0", n % 10);
 }
 else
 {
-printf("is %d and is less than 6", n % 10);
+printf("is %d and is less than 6 and not 0", n % 10);
 }
 return (0);
 }
