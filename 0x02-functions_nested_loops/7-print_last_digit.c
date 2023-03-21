@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
  * print_last_digit - prints the last digit of a number
@@ -9,11 +9,12 @@
 
 int print_last_digit(int n)
 {
-	int m;
+	int last = n % 10;
 
-	m = n % 10;
 	if (n < 0)
-		return (-m);
-	else
-		return (m);
+	{
+		last = last * -1;
+	}
+	_putchar(last + '0');
+	return (last);
 }
