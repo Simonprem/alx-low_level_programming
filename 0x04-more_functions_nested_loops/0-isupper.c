@@ -5,9 +5,8 @@
  * @c: character to check
  * Return: if uppercase 1 else 0.
  */
-int _isupper(int c);
+int _isupper(int c)
 {
-	int c;
 
 	if (c >= 'A' && c <= 'Z')
 		return (1);
