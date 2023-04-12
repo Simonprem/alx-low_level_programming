@@ -1,43 +1,47 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * str_concat - Concatenates two strings
- * @s1: Pointer to the first string
- * @s2: Pointer to the second string
+ * str_concat - concatenates two strings.
+ * @s1: first string
+ * @s2: second string
  *
- * Return: Pointer to the concatenated string, or NULL on failure
+ * Return: a pointer to a newly allocated space in memory which
+ * contains the contents of s1, followed by the contents of s2,
+ * and null terminated. NULL on failure
  */
 char *str_concat(char *s1, char *s2)
 {
-        char *dup;
-        int i, j;
-        int len1 = 0;
-        int len2 = 0;
+	int i, j, len1, len2, len;
+	char *result;
 
-        if (s1 == NULL)
-                s1 = "";
-        if (s2 == NULL)
-                s2 = "";
+	len1 = len2 = 0;
 
-        for (i = 0; s1[i] != '\0'; i++)
-                len1++;
-        for (j = 0; s2[j] != '\0'; j++)
-                len2++;
+	if (s1 != NULL)
+	{
+		i = 0;
+		while (s1[i++] != '\0')
+			len1++;
+	}
 
-        dup = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (s2 != NULL)
+	{
+		i = 0;
+		while (s2[i++] != '\0')
+			len2++;
+	}
 
-        if (dup == NULL)
-                return (NULL);
+	len = len1 + len2;
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (result == NULL)
+		return (NULL);
 
-        for (i = 0; i < len1; i++)
-                dup[i] = s1[i];
+	for (i = 0; i < len1; i++)
+		result[i] = s1[i];
+	for (j = 0; j < len2; j++, i++)
+		result[i] = s2[j];
+	result[len] = '\0';
 
-        for (j = 0; j < len2; j++)
-                dup[len1 + j] = s2[j];
-
-        dup[len1 + len2] = '\0';
-
-        return (dup);
+	return (result);
 }
-
