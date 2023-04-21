@@ -6,22 +6,22 @@
  * @separator: separator between int
  * Return: 0 os success
  */
-
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	unsigned i;
-
+	unsigned int i;
 	va_list args;
+
 	va_start(args, n);
+
+	if (separator == NULL)
+		separator = "";
 
 	for (i = 0; i < n; i++)
 	{
-	int x = va_arg(args, int);
-	if (i < n - 1)
-	printf("%d%s", x, separator);
-	else
-	printf("%d", x);
+		printf("%d", va_arg(args, int));
+		if (i < n - 1)
+			printf("%s", separator);
 	}
 	printf("\n");
-	va_end (args);
+	va_end(args);
 }
